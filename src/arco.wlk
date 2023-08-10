@@ -9,7 +9,7 @@ object izquierda{
 	method colision(){
 		contadorDeGoles.sumarGol()
 		game.addVisual(gol)
-		game.schedule(250,{=> juego.reiniciar()})
+		game.schedule(250,{juego.reiniciar()})
 	}
 }
 
@@ -20,7 +20,7 @@ object medio{
 	method colision(){
 		contadorDeGoles.sumarGol()
 		game.addVisual(gol)
-		game.schedule(250,{=> juego.reiniciar()})
+		game.schedule(250,{juego.reiniciar()})
 	}
 }
 
@@ -31,7 +31,7 @@ object derecha{
 	method colision(){
 		contadorDeGoles.sumarGol()
 		game.addVisual(gol)
-		game.schedule(250,{=> juego.reiniciar()})
+		game.schedule(250,{juego.reiniciar()})
 	}
 }
 

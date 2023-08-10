@@ -10,9 +10,9 @@ object pelota{
 	method image() = "assets/pelota.png"
 	
 	method control(){	
-		keyboard.num(1).onPressDo{self.patearIzquierda()}
-		keyboard.num(2).onPressDo{self.patearMedio()}
-		keyboard.num(3).onPressDo{self.patearDerecha()}
+		keyboard.num(1).onPressDo{self.patear(2)}
+		keyboard.num(2).onPressDo{self.patear(3)}
+		keyboard.num(3).onPressDo{self.patear(4)}
 	}
 	
 	method colisionaCon(otroElemento){
@@ -20,36 +20,18 @@ object pelota{
 		otroElemento.colision()
 	}
 	
-	method patearIzquierda(){
+	method patear(posicion){
 		if (puedePatear){
 		puedePatear = false
 		arquero.mover()
-		position = game.at(2,2)
-		game.schedule(100,{=> self.mover()})
+		position = game.at(posicion,2)
+		game.schedule(50,{self.mover()})
 		}
 	}
 	
-	
-	method patearMedio(){
-	  if (puedePatear){
-		puedePatear = false
-		arquero.mover()
-		position = game.at(3,2)
-		game.schedule(50,{=> self.mover()})
-		}
-	}
-	
-	method patearDerecha(){
-		if (puedePatear) {
-		puedePatear = false
-		arquero.mover()
-		position = game.at(4,2)
-		game.schedule(50,{=> self.mover()})
-	   }
-	}
 
 method mover(){
-		game.onTick(50,"mover",{=> position = position.up(1)})
+		game.onTick(50,"mover",{position = position.up(1)})
 	}
 		
 	method reiniciar(){
