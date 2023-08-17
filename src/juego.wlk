@@ -4,10 +4,14 @@ import personajes.*
 
 
 object juego{
+	const sonidoAmbiente = game.sound("assets/ambiente.mp3")
+	
 	method iniciar(){
+		sonidoAmbiente.shouldLoop(true)
 		self.visuales()
 		self.colisiones()
 		pelota.control()
+		game.schedule(1,{sonidoAmbiente.play()})
 		game.start()	
 	}
 	

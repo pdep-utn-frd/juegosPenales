@@ -2,9 +2,15 @@ import wollok.game.*
 import personajes.*
 import juego.*
 
+
 object izquierda{
+	
+	
+	
 	method position() = game.at(2,4)
 	method image() = "assets/arco.png"
+
+	
 	
 	method colision(){
 		contadorDeGoles.sumarGol()
@@ -36,9 +42,8 @@ object derecha{
 }
 
 object gol{
-	method position() = game.at(3,4)
-	method text() = "GOOOOOL"
-	method textColor() = "#48e369"
+	method position() = game.at(1,4)
+	method image() = "assets/gol.png"
 }
 
 object contadorDeGoles{
@@ -58,7 +63,6 @@ object contadorDeGoles{
 }
 
 object finDeJuego{
- 	method position() = game.at(3,4)
- 	method text() = "GAME OVER"
- 	method textColor() = "#48e369"
+ 	method position() = game.at(1,4)
+ 	method image() = "assets/gameOver.png"
 }
