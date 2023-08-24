@@ -4,8 +4,9 @@ import juego.*
 import arco.*
 
 object pelota{
-	var property puedePatear = true
-	var property position = game.at(3,1)
+	const puntoPenal = game.at(3,1)
+	var puedePatear = true
+	var property position = puntoPenal
 	
 	method image() = "assets/pelota.png"
 	
@@ -34,15 +35,16 @@ method mover(){
 		game.onTick(50,"mover",{position = position.up(1)})
 	}
 		
-	method reiniciar(){
-		position = game.at(3,1)
+	method regresar(){
+		position = puntoPenal
 		puedePatear = true
 	}
 	
 }
 
 object arquero{
-	var property position = game.at(3,3)
+	const centroDelArco = game.at(3,3)
+	var property position = centroDelArco
 	
 	method image() = "assets/arquero.png"
 	
@@ -55,8 +57,8 @@ object arquero{
 		position = position.right((-1).randomUpTo(2))
 	}
 	
-	method reiniciar(){
-		position = game.at(3,3)
+	method regresar(){
+		position = centroDelArco
 	}
 
 }

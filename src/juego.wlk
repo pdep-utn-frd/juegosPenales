@@ -16,7 +16,7 @@ object juego{
 	}
 	
 	method visuales(){
-		game.title("Juegos Penales")
+		game.title("Juegos Penales") 
 		game.width(7)
 		game.height(7)
 		game.boardGround("assets/fondo.png")
@@ -37,19 +37,17 @@ object juego{
 	
 
 	
-	method reiniciar(){
-		arquero.reiniciar()
-		pelota.reiniciar()
+	method regresar(){
+		arquero.regresar()
+		pelota.regresar()
 		game.schedule(50,{game.removeVisual(gol)})
 	}
 	
 	method resetear(){
-	 if (!pelota.puedePatear()){
-		game.removeVisual(finDeJuego)
+		game.schedule(1, {=> (game.removeVisual(finDeJuego))})
 		contadorDeGoles.reiniciar()
-		arquero.reiniciar()
-		pelota.reiniciar()
-	 }
+		arquero.regresar()
+		pelota.regresar()
 	}
 		
 }

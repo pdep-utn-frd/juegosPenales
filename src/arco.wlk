@@ -2,7 +2,6 @@ import wollok.game.*
 import personajes.*
 import juego.*
 
-
 object izquierda{
 	
 	
@@ -13,9 +12,7 @@ object izquierda{
 	
 	
 	method colision(){
-		contadorDeGoles.sumarGol()
-		game.addVisual(gol)
-		game.schedule(250,{juego.reiniciar()})
+		gol.convertir()
 	}
 }
 
@@ -24,9 +21,7 @@ object medio{
 	method image() = "assets/arco.png"
 	
 	method colision(){
-		contadorDeGoles.sumarGol()
-		game.addVisual(gol)
-		game.schedule(250,{juego.reiniciar()})
+		gol.convertir()
 	}
 }
 
@@ -35,15 +30,19 @@ object derecha{
 	method image() = "assets/arco.png"
 	
 	method colision(){
-		contadorDeGoles.sumarGol()
-		game.addVisual(gol)
-		game.schedule(250,{juego.reiniciar()})
+		gol.convertir()
 	}
 }
 
 object gol{
 	method position() = game.at(1,4)
 	method image() = "assets/gol.png"
+	
+	method convertir(){
+		contadorDeGoles.sumarGol()
+		game.addVisual(self)
+		game.schedule(250,{juego.regresar()})
+	}
 }
 
 object contadorDeGoles{
