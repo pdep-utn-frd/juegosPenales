@@ -5,7 +5,7 @@ import arco.*
 
 object pelota{
 	const puntoPenal = game.at(3,1)
-	var puedePatear = true
+	var property puedePatear = true
 	var property position = puntoPenal
 	
 	method image() = "assets/pelota.png"
@@ -49,8 +49,8 @@ object arquero{
 	method image() = "assets/arquero.png"
 	
 	method colision(){
-		keyboard.space().onPressDo{juego.resetear()}
 		game.addVisual(finDeJuego)
+		keyboard.space().onPressDo{juego.resetear()}
 	}
 	
 	method mover(){

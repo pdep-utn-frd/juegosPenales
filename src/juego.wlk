@@ -44,10 +44,12 @@ object juego{
 	}
 	
 	method resetear(){
-		game.schedule(1, {=> (game.removeVisual(finDeJuego))})
+		if (!pelota.puedePatear()) {
+		game.removeVisual(finDeJuego)
 		contadorDeGoles.reiniciar()
 		arquero.regresar()
 		pelota.regresar()
+		}
 	}
 		
 }
