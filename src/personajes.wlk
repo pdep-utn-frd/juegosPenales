@@ -10,7 +10,7 @@ object pelota{
 	method image() = "assets/pelota.png"
 	
 	method control(){	
-		keyboard.num(1).onPressDo{self.patear(2)}
+		3.times{i => keyboard.num(1).onPressDo{self.patear(i+1)}}
 		keyboard.num(2).onPressDo{self.patear(3)}
 		keyboard.num(3).onPressDo{self.patear(4)}
 	}
